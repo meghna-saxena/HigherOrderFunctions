@@ -82,4 +82,26 @@ const companyNames = companies.map(company => {
 
 const ageMap = ages.map(age => Math.sqrt(age)).map(age => age * 2);
 
-console.log(ageMap);
+// console.log(ageMap);
+
+/** ===================================================
+ * sort
+====================================================== */
+
+// Sort companies by start year
+
+// const sortedCompanies = companies.sort(function(company1, company2) {
+//   if (company1.start > company2.start) {
+//     return 1;
+//   } else {
+//     return -1;
+//   }
+// });
+
+const sortedCompanies = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
+//console.log(sortedCompanies);
+
+// Sort ages
+const sortAgesByAscendingOrder = ages.sort((a, b) => a - b); // ascending
+const sortAgesByDescendingOrder = ages.sort((a, b) => b - a); // descending
+console.log(sortAgesByDescendingOrder);
