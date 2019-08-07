@@ -104,4 +104,26 @@ const sortedCompanies = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
 // Sort ages
 const sortAgesByAscendingOrder = ages.sort((a, b) => a - b); // ascending
 const sortAgesByDescendingOrder = ages.sort((a, b) => b - a); // descending
-console.log(sortAgesByDescendingOrder);
+//console.log(sortAgesByDescendingOrder);
+
+/** ===================================================
+ * reduce
+====================================================== */
+
+// let ageSum = 0;
+// for (let i = 0; i < ages.length; i++) {
+//   ageSum += ages[i];
+// }
+
+// const ageSum = ages.reduce(function(total, age) {
+//   return total + age;
+// }, 0);
+
+const ageSum = ages.reduce((total, age) => total + age, 0);
+//console.log(ageSum);
+
+// Get total years of all companies
+const totalYears = companies.reduce(function(total, company) {
+  return total + (company.end - company.start); // company.end - company.start => the total time single company last
+}, 0);
+console.log(totalYears);
