@@ -11,7 +11,26 @@ const companies = [
   { name: "Company Ten", category: "Auto", start: 1986, end: 1989 }
 ];
 
-const ages = [33, 21, 28, 5, 14, 27, 42, 30, 26, 35, 22, 18, 12, 23];
+const ages = [
+  33,
+  21,
+  28,
+  5,
+  14,
+  27,
+  42,
+  30,
+  26,
+  35,
+  22,
+  18,
+  12,
+  23,
+  66,
+  2,
+  98,
+  104
+];
 
 /** ======================================================
  * forEach - just iterates over array, doesnt return anything
@@ -108,6 +127,12 @@ const sortAgesByDescendingOrder = ages.sort((a, b) => b - a); // descending
 
 /** ===================================================
  * reduce
+
+The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+
+SYNTAX
+arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])
+
 ====================================================== */
 
 // let ageSum = 0;
@@ -126,4 +151,14 @@ const ageSum = ages.reduce((total, age) => total + age, 0);
 const totalYears = companies.reduce(function(total, company) {
   return total + (company.end - company.start); // company.end - company.start => the total time single company last
 }, 0);
-console.log(totalYears);
+//console.log(totalYears);
+
+// Combine methods
+
+const combined = ages
+  .map(age => age * 2)
+  .filter(age => age >= 40)
+  .sort((a, b) => a - b)
+  .reduce((totalAges, age) => totalAges + age, 0); // always pass the second argument in reduce method, the initial value, otherwise you get object Object in certain cases when you add an object's value
+
+console.log(combined);
